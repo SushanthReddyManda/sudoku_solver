@@ -117,6 +117,18 @@ function SearchSolutions() {
               document.getElementById("answer3").innerHTML= theOne.asHTML() + "<hr>";}
             if (numSol==4){
               document.getElementById("answer4").innerHTML= theOne.asHTML() + "<hr>";}
+            if (numSol==5){
+              document.getElementById("answer5").innerHTML= theOne.asHTML() + "<hr>";}
+            if (numSol==6){
+              document.getElementById("answer6").innerHTML= theOne.asHTML() + "<hr>";}
+            if (numSol==7){
+              document.getElementById("answer7").innerHTML= theOne.asHTML() + "<hr>";}
+            if (numSol==8){
+              document.getElementById("answer8").innerHTML= theOne.asHTML() + "<hr>";}
+            if (numSol==9){
+              document.getElementById("answer9").innerHTML= theOne.asHTML() + "<hr>";}
+            if (numSol==10){
+              document.getElementById("answer10").innerHTML= theOne.asHTML() + "<hr>";}
             return null;
         }
         var p=this.mostConstrained();
@@ -152,6 +164,10 @@ function solve_click() {
     document.getElementById("answer4").innerHTML= "";
     document.getElementById("answer5").innerHTML= "";
     document.getElementById("answer6").innerHTML= "";
+    document.getElementById("answer7").innerHTML= "";
+    document.getElementById("answer8").innerHTML= "";
+    document.getElementById("answer9").innerHTML= "";
+    document.getElementById("answer10").innerHTML= "";
     var theSec=new Board();
     numSol=0;
     for (var i=0; i<81; ++i) {
@@ -159,21 +175,20 @@ function solve_click() {
     if (v>="1" && v<="9") theSec.setValue(i, parseInt(v));}
     var rsp=theSec.searchSolutions();
     // var ans="<p>No solution<\/p>";
-    // if (numSol==1) ans="<p>Valid Sudoku - One and only one solution !<\/p>"+theOne.asHTML() ;
-    // if (numSol==2) ans="<p>Sudoku - 2 solutions !<\/p>"+theOne.asHTML() ;
-    // if (numSol==3) ans="<p>Sudoku - 3 solutions !<\/p>"+theOne.asHTML() ;
-    // if (numSol==4) ans="<p>Sudoku - 4 solutions !<\/p>"+theOne.asHTML() ;
-    // if (numSol==5) ans="<p>Sudoku - 5 solutions !<\/p>"+theOne.asHTML() ;
-    // if (numSol==6) ans="<p>Sudoku - 6 solutions !<\/p>"+theOne.asHTML() ;
-    // if (numSol==7) ans="<p>Sudoku - 7 solutions !<\/p>"+theOne.asHTML() ;
-    // if (numSol==8) ans="<p>Sudoku - 8 solutions !<\/p>"+theOne.asHTML() ;
-    // if (numSol==9) ans="<p>Sudoku - 9 solutions !<\/p>"+theOne.asHTML() ;
-    // if (numSol==4) ans="<p>Sudoku - 4 solutions !<\/p>"+theOne.asHTML() ;
+    if (numSol==1) ans="<p>Valid Sudoku - One and only one solution !<\/p>"+theOne.asHTML() ;
+    if (numSol==2) ans="<p>Sudoku - 2 solutions !<\/p>"+theOne.asHTML() ;
+    if (numSol==3) ans="<p>Sudoku - 3 solutions !<\/p>"+theOne.asHTML() ;
+    if (numSol==4) ans="<p>Sudoku - 4 solutions !<\/p>"+theOne.asHTML() ;
+    if (numSol==5) ans="<p>Sudoku - 5 solutions !<\/p>"+theOne.asHTML() ;
+    if (numSol==6) ans="<p>Sudoku - 6 solutions !<\/p>"+theOne.asHTML() ;
+    if (numSol==7) ans="<p>Sudoku - 7 solutions !<\/p>"+theOne.asHTML() ;
+    if (numSol==8) ans="<p>Sudoku - 8 solutions !<\/p>"+theOne.asHTML() ;
+    if (numSol==9) ans="<p>Sudoku - 9 solutions !<\/p>"+theOne.asHTML() ;
     if (numSol==10) {
-      ans="<p>Sudoku - More than 10 solutions !<\/p>";
-      document.getElementById("answer6").innerHTML= ans;
+      ans="<p>Sudoku - More than 9 solutions !<\/p>";
+      document.getElementById("answer10").innerHTML= ans;
     }
-    else {document.getElementById("answer5").innerHTML= "<p>Sudoku - Num Of solutions solutions :- " + numSol + "<\/p>";}
+    else {document.getElementById("answer0").innerHTML= "<p>Sudoku - Num Of solutions solutions :- " + numSol + "<\/p>";}
     
 }
 
@@ -183,23 +198,34 @@ function solve_click() {
 .sol {
     WIDTH: 1em; HEIGHT: 1em
 }
+td{
+  border-color: rgba(255, 127, 80,0.7);
+}
 </STYLE>
 </HEAD>
 <BODY>
-<h1>Sudoku Solver</h1>
+<h1 style="color: tomato;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Sudoku Solver</h1>
 <!-- <a href="solverabout.html"><span style="font-size: smaller">(about)</span></a> -->
-
+<p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color: tomato;font-size: large;"> This is a sudoku solver which prints until  9 solutions  and if more than than 9 says they are more than 9. </p>
+<p   style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color: tomato;font-size: large;">I can chage the code to print the any number of solutiuons.</p>
 <div>
 <script type="text/javascript">
  DrawInput();
 </script>
-<input type="button" value="Solve" onclick="solve_click();">
+<input style="margin:20px 0;border-radius: 10px;background-color: coral;color: white;border-color: coral;"  type="button" value="Solve" onclick="solve_click();">
+<div id="answer0"></div>
 </div>
+
 <div id="answer1"></div>
 <div id="answer2"></div>
 <div id="answer3"></div>
 <div id="answer4"></div>
 <div id="answer5"></div>
 <div id="answer6"></div>
+<div id="answer7"></div>
+<div id="answer8"></div>
+<div id="answer9"></div>
+<div id="answer10"></div>
+
 </BODY>
 </HTML>
